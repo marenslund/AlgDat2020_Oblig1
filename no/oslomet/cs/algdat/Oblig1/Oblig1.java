@@ -10,8 +10,8 @@ public class Oblig1 {
 
     public static void main(String[] args){
         int[] testArray = {2, 5, 11, 3, 8, 5, 9, 3, 1};
-        int[] testArray2 = {};
-        System.out.println(maks(testArray2));
+        System.out.println(maks(testArray));
+        System.out.println(ombyttinger(testArray));
     }
 
     private Oblig1() {}
@@ -34,7 +34,17 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+        int changes = 0;
+        for (int i = 1; i < a.length; i++){
+            if (a[i-1] > a[i]){
+                int greaterValue = a[i-1];
+                a[i-1] = a[i];
+                a[i] = greaterValue;
+                changes++;
+            }
+        }
+
+        return changes;
     }
 
     ///// Oppgave 2 //////////////////////////////////////
