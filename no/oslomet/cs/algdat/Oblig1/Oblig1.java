@@ -4,17 +4,53 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Maren Spongsveen Lund, s344057, s344057@oslomet.no /////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.NoSuchElementException;
 
 public class Oblig1 {
+
+    public static void main(String[] args){
+        int[] testArray = {2, 5, 3, 8, 5, 9, 3, 11, 1};
+        System.out.println(maks(testArray));
+        System.out.println(ombyttinger(testArray));
+    }
+
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
+
+    // Det blir gjort flest ombyttinger naar tabellen blir sortert synkende
+    // Det blir gjort faerrest ombyttinger naar tabellen blir sortert stigende
+    // Gjennomsnittet blir n(n-1)/4 ombyttinger
+    // Husk å svare på denne senere!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     public static int maks(int[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length == 0) {
+            throw new NoSuchElementException("Error: Tabellen kan ikke være tom!");
+        }
+
+        for (int i = 1; i < a.length; i++){
+            if (a[i-1] > a[i]){
+                int greaterValue = a[i-1];
+                 a[i-1] = a[i];
+                 a[i] = greaterValue;
+            }
+        }
+
+        return a[a.length-1];
     }
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+        int changes = 0;
+        for (int i = 1; i < a.length; i++){
+            if (a[i-1] > a[i]){
+                int greaterValue = a[i-1];
+                a[i-1] = a[i];
+                a[i] = greaterValue;
+                changes++;
+            }
+        }
+
+        return changes;
     }
 
     ///// Oppgave 2 //////////////////////////////////////
