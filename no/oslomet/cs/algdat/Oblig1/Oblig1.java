@@ -55,7 +55,26 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+        if (a.length == 0) {
+            return 0;
+        }
+
+        int compareable = a[0];
+        int values = 1;
+
+        for (int i = 1; i < a.length; i++){
+            if (compareable != a[i]) {
+                values++;
+            }
+            if (a[i] < compareable) {
+                throw new IllegalStateException("Error: Tabellen må være sortert stigende!");
+            }
+            else {
+                compareable = a[i];
+            }
+        }
+
+        return values;
     }
 
     ///// Oppgave 3 //////////////////////////////////////
