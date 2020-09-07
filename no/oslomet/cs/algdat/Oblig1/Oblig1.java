@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
 
     public static void main(String[] args){
-        int[] testArray = {2, 5, 11, 3, 8, 5, 9, 3, 1};
+        int[] testArray = {2, 5, 3, 8, 5, 9, 3, 11, 1};
         System.out.println(maks(testArray));
         System.out.println(ombyttinger(testArray));
     }
@@ -17,6 +17,12 @@ public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
+
+    // Det blir gjort flest ombyttinger naar tabellen blir sortert synkende
+    // Det blir gjort faerrest ombyttinger naar tabellen blir sortert stigende
+    // Gjennomsnittet blir n(n-1)/4 ombyttinger
+    // Husk å svare på denne senere!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     public static int maks(int[] a) {
         if(a.length == 0) {
             throw new NoSuchElementException("Error: Tabellen kan ikke være tom!");
