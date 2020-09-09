@@ -9,13 +9,6 @@ import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
-    public static void main(String[] args){
-        int[] testArray = {1, 2, 3, 4, 1, 2, 4, 4, 6, 5, 5, 4, 7, 2, 8, 9, 4, 5, 2, 3, 7, 5};
-        System.out.println("Før sortering: " + Arrays.toString(testArray));
-        delsortering(testArray);
-        System.out.println("Etter sortering: " + Arrays.toString(testArray));
-    }
-
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
@@ -23,7 +16,8 @@ public class Oblig1 {
     // Det blir gjort flest ombyttinger naar tabellen blir sortert synkende
     // Det blir gjort faerrest ombyttinger naar tabellen blir sortert stigende
     // Gjennomsnittet blir n(n-1)/4 ombyttinger
-    // Husk å svare på denne senere!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Metoden maks() er dårligere enn de vi har sett på tidligere fordi de
+    // Gjør ingen ombyttinger, altså de endres ikke, dermed gjør de også færre operasjoner
 
     public static int maks(int[] a) {
         if(a.length == 0) {
@@ -157,7 +151,12 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        char[] b = Arrays.copyOf(a, a.length);
+
+        if(a.length > 1) {
+            a[0] = b[a.length-1];
+            System.arraycopy(b, 0, a, 1, a.length - 1);
+        }
     }
 
     //_____________________________________________________________________________________________
@@ -169,12 +168,56 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+        String[] sArray = s.split("");
+        String[] tArray = t.split("");
+        int k = 0;
+        int limit = Math.min(sArray.length, tArray.length);
+
+        String[] newArray = new String[sArray.length + tArray.length];
+
+        for (int i = 0; i < limit; i++) {
+            newArray[k++] = sArray[i];
+            newArray[k++] = tArray[i];
+        }
+
+        if (limit == sArray.length) {
+            for (int i = limit; i < tArray.length; i++) {
+                newArray[k++] = tArray[i];
+            }
+        } else {
+            for (int i = limit; i < sArray.length; i++) {
+                newArray[k++] = sArray[i];
+            }
+        }
+
+        return String.join("", newArray);
     }
 
     /// 7b)
     public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+        int charCounter = 0;
+        for (String value : s) {
+            charCounter += value.length();
+        }
+
+        String[] newArray = new String[charCounter];
+
+        int j = 0;
+        int k = 0;
+
+        for (int i = 0; i < s.length; i++) {
+            if (j < s[i].length()) {
+                newArray[k++] = String.valueOf(s[i].charAt(j));
+            }
+            if (j == newArray.length + 1) {
+                break;
+            }
+            if (i == s.length - 1) {
+                i = -1;
+                j++;
+            }
+        }
+        return String.join("", newArray);
     }
 
     ///// Oppgave 8 //////////////////////////////////////
