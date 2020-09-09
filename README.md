@@ -7,5 +7,5 @@ Oppgaven er levert av følgende studenter:
 # Arbeidsfordeling
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
-* Maren har hatt hovedansvar for oppgave 1, 2, 3, 4, 5
+* Maren har hatt hovedansvar for oppgave 1, 2, 3, 4, 5, 7
 
