@@ -4,13 +4,16 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Maren Spongsveen Lund, s344057, s344057@oslomet.no /////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
     public static void main(String[] args){
-        int[] testArray = {1, 2, 3, 4, 1, 2, 4, 4, 6, 5, 5};
-        System.out.println(antallUlikeUsortert(testArray));
+        int[] testArray = {1, 2, 3, 4, 1, 2, 4, 4, 6, 5, 5, 4, 7, 2, 8, 9, 4, 5, 2, 3, 7, 5};
+        System.out.println("Før sortering: " + Arrays.toString(testArray));
+        delsortering(testArray);
+        System.out.println("Etter sortering: " + Arrays.toString(testArray));
     }
 
     private Oblig1() {}
@@ -97,7 +100,59 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+        int left = 0;
+        int right = a.length - 1;
+        int counter = 0;
+        while (left < right) {
+            while (a[left] % 2 != 0) {
+                left++;
+                counter++;
+                if(left==a.length-1) {
+                    counter++;
+                    break;
+                }
+            }
+            while (a[right] % 2 == 0 && left < right) {
+                right--;
+            }
+            if (left < right)
+                switchPlace(a, left, right);
+        }
+        quickSort(a,0,counter-1);
+        quickSort(a,counter,a.length-1);
+    }
+
+    private static int parter0(int[] a, int left, int right, int pivot) {
+        while (true)
+        {
+            while (left <= right && a[left] < pivot) { left++; }
+            while (left <= right && a[right] >= pivot) { right--; }
+
+            if (left < right) {
+                switchPlace(a,left++,right--);
+            }
+            else {
+                return left;
+            }
+        }
+    }
+    private static int sParter0(int[] a, int left, int right, int index) {
+        switchPlace(a, index, right);
+        int pos = parter0(a, left, right - 1, a[right]);
+        switchPlace(a, pos, right);
+        return pos;
+    }
+    private static void quickSort(int[] a, int begin, int end) {
+        if (begin >= end) { return; }
+        int i = sParter0(a, begin, end, (begin + end)/2);
+        quickSort(a, begin, i - 1);
+        quickSort(a, i + 1, end);
+    }
+
+    private static void switchPlace(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 
     ///// Oppgave 5 //////////////////////////////////////
