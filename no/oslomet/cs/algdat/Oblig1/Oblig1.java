@@ -16,8 +16,8 @@ public class Oblig1 {
     // Det blir gjort flest ombyttinger naar tabellen blir sortert synkende
     // Det blir gjort faerrest ombyttinger naar tabellen blir sortert stigende
     // Gjennomsnittet blir n(n-1)/4 ombyttinger
-    // Metoden maks() er dårligere enn de vi har sett på tidligere fordi de
-    // Gjør ingen ombyttinger, altså de endres ikke, dermed gjør de også færre operasjoner
+    // Metoden maks() er daarligere enn de vi har sett på tidligere fordi de
+    // Gjoer ingen ombyttinger, altsaa de endres ikke, dermed gjoer de også faerre operasjoner
 
     public static int maks(int[] a) {
         if(a.length == 0) {
