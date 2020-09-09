@@ -3,7 +3,6 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 ////// Maren Spongsveen Lund, s344057, s344057@oslomet.no /////////////////
 
-import java.lang.UnsupportedOperationException;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
@@ -158,12 +157,12 @@ public class Oblig1 {
             System.arraycopy(b, 0, a, 1, a.length - 1);
         }
     }
-
+/*
     //_____________________________________________________________________________________________
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
@@ -220,7 +219,7 @@ public class Oblig1 {
         return String.join("", newArray);
     }
 
-    ///// Oppgave 8 //////////////////////////////////////
+    /*///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         throw new UnsupportedOperationException();
     }
@@ -237,6 +236,6 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
 }  // Oblig1
