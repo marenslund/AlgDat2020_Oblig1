@@ -9,9 +9,8 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
 
     public static void main(String[] args){
-        int[] testArray = {2, 5, 3, 8, 5, 9, 3, 11, 1};
-        System.out.println(maks(testArray));
-        System.out.println(ombyttinger(testArray));
+        int[] testArray = {1, 2, 3, 4, 1, 2, 4, 4, 6, 5, 5};
+        System.out.println(antallUlikeUsortert(testArray));
     }
 
     private Oblig1() {}
@@ -79,7 +78,21 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        if (a.length == 0) {
+            return 0;
+        }
+
+        int values = a.length;
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i+1; j < a.length; j++) {
+                if (a[i] == a[j]) {
+                    values--;
+                    break;
+                }
+            }
+        }
+        return values;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
